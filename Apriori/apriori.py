@@ -78,11 +78,13 @@ class apriori:
             return self.data[:, seq_col_idx]
 
         return self.data[seq_row_idx, seq_col_idx]
+
     def reset(self):
         self.freqset = {}
         self.gen = {}
         self.num_gen = len(self.data[0]) - 1
         self.freqlen = np.zeros(self.num_gen, dtype=int)
+
     def output_ans(self, sup):
         with open("freqset{}.txt".format(sup), "w") as f:
             f.write("Support is set to be {}%\n".format(sup * 100))
