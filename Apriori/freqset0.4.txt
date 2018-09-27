@@ -1,9 +1,9 @@
-Support is set to be 50.0%
-number of length-1 frequent itemsets: 109
-number of length-2 frequent itemsets: 63
-number of length-3 frequent itemsets: 2
-number of length-4 frequent itemsets: 0
-number of length-5 frequent itemsets: 0
+Support is set to be 40.0%
+number of length-1 frequent itemsets: 167
+number of length-2 frequent itemsets: 753
+number of length-3 frequent itemsets: 149
+number of length-4 frequent itemsets: 7
+number of length-5 frequent itemsets: 1
 number of length-6 frequent itemsets: 0
 number of length-7 frequent itemsets: 0
 number of length-8 frequent itemsets: 0
@@ -99,4 +99,3 @@ number of length-97 frequent itemsets: 0
 number of length-98 frequent itemsets: 0
 number of length-99 frequent itemsets: 0
 number of length-100 frequent itemsets: 0
-number of length-101 frequent itemsets: 0

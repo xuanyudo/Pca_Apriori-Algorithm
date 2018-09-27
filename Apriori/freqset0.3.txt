@@ -1,12 +1,12 @@
 Support is set to be 30.0%
-number of length-1 frequent itemsets: 194
-number of length-2 frequent itemsets: 5323
-number of length-3 frequent itemsets: 5251
-number of length-4 frequent itemsets: 1463
-number of length-5 frequent itemsets: 388
-number of length-6 frequent itemsets: 61
-number of length-7 frequent itemsets: 3
-number of length-8 frequent itemsets: 0
+number of length-1 frequent itemsets: 196
+number of length-2 frequent itemsets: 5340
+number of length-3 frequent itemsets: 5287
+number of length-4 frequent itemsets: 1518
+number of length-5 frequent itemsets: 438
+number of length-6 frequent itemsets: 88
+number of length-7 frequent itemsets: 11
+number of length-8 frequent itemsets: 1
 number of length-9 frequent itemsets: 0
 number of length-10 frequent itemsets: 0
 number of length-11 frequent itemsets: 0
@@ -99,3 +99,4 @@ number of length-97 frequent itemsets: 0
 number of length-98 frequent itemsets: 0
 number of length-99 frequent itemsets: 0
 number of length-100 frequent itemsets: 0
+number of length-101 frequent itemsets: 0
