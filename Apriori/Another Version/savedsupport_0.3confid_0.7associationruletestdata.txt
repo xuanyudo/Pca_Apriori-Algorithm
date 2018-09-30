@@ -1,0 +1,10 @@
+Support is set to be: 30.000000
+number of length-1 lengths frequent itemsets: 196
+number of length-2 lengths frequent itemsets: 5340
+number of length-3 lengths frequent itemsets: 5287
+number of length-4 lengths frequent itemsets: 1518
+number of length-5 lengths frequent itemsets: 438
+number of length-6 lengths frequent itemsets: 88
+number of length-7 lengths frequent itemsets: 11
+number of length-8 lengths frequent itemsets: 1
+number of all lengths frequent itemsets: 12879

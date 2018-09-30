@@ -247,7 +247,7 @@ except FileNotFoundError:
 
 with open(rulePrintFileName, 'w') as ruleFile:
 	for rule in freqRule:
-		ruleFile.write("%s -> %s\n" % (str(set(map(lambda x: x.decode("utf-8"), rule.return_vars()[0]))), str(set(map(lambda x: x.decode("utf-8"), rule.return_vars()[1])))))
+		ruleFile.write(str(rule))
 
 asso_rule = AssoRule(freqRule)
 
