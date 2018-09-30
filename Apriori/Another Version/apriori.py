@@ -5,7 +5,7 @@ from functools import reduce
 import hashlib
 import pickle
 
-support = 0.2
+support = 0.3
 confidence = 0.7
 testFileName = 'associationruletestdata'
 #testFileName = 'test'
@@ -14,9 +14,9 @@ saveFileName = "savedsupport_"+str(support)+"confid_"+str(confidence)+testFileNa
 freqSetFileName = "saved/"+saveFileName+".pickle"
 ruleFileName = "saved/"+saveFileName+"rule.picklerule";
 
-freqPrintFileName = saveFileName+".csv"
-rulePrintFileName = saveFileName+"rule.csv";
-ruleTemplatePrintFileName = saveFileName+"Templates.csv";
+freqPrintFileName = saveFileName+".txt"
+rulePrintFileName = saveFileName+"rule.txt";
+ruleTemplatePrintFileName = saveFileName+"Templates.txt";
 
 # input: recursive set, data for searching, support percentage
 # use recursive breadth first search approach
@@ -127,7 +127,7 @@ class rule:
 	def __eq__(self, other):
 		return (self.__class__ == other.__class__ and self.head == other.head and self.body == other.body)
 	def __str__(self):
-		return "%s -> %s\n" % str(set(map(lambda x: x.decode("utf-8"), self.return_vars()[0]))) + str(set(map(lambda x: x.decode("utf-8"), self.return_vars()[1])))
+		return "%s -> %s\n" % (str(set(map(lambda x: x.decode("utf-8"), self.return_vars()[0]))), str(set(map(lambda x: x.decode("utf-8"), self.return_vars()[1]))))
 
 def freqSetSetup(saveToFile):
 	my_data = genfromtxt(testFile, delimiter='\t', dtype="|S10")
@@ -179,7 +179,7 @@ class AssoRule:
 			predCount = quantity
 		if(pred == None):
 			pred = lambda rulez: len(set(map(lambda x: x.decode("utf-8"),rulez.return_all()[index])).intersection(set(array))) == quantity
-		resultSet = list(filter( pred, self.ruleSet))
+		resultSet = set(filter( pred, self.ruleSet))
 		return resultSet, len(resultSet)
 
 	def template2(self, ide, quantity):
@@ -190,7 +190,7 @@ class AssoRule:
 			index = 2
 		else:
 			assert ide == "RULE"
-		resultSet = list(filter( lambda rulez: len(rulez.return_all()[index]) == quantity, self.ruleSet))
+		resultSet = set(filter( lambda rulez: len(rulez.return_all()[index]) == quantity, self.ruleSet))
 		return resultSet, len(resultSet)
 	def template3(self, ide, *arbituraryData):
 		t0, t1= None, None
@@ -204,16 +204,16 @@ class AssoRule:
 		set0, set1, resultSet = None, None, None
 
 		assert (t0== "1" or t0 == "2")
-		set0 =  self.template1(arbituraryData[0], arbituraryData[1], arbituraryData[2]) if (t0 == "1") else self.template2(arbituraryData[0], arbituraryData[1])
+		set0, cnt =  self.template1(arbituraryData[0], arbituraryData[1], arbituraryData[2]) if (t0 == "1") else self.template2(arbituraryData[0], arbituraryData[1])
 		arbituraryData = arbituraryData[3:] if (t0 == "1") else arbituraryData[2:]
 		
 		assert (t1== "1" or t1 == "2")
-		set1 = self.template1(arbituraryData[0], arbituraryData[1], arbituraryData[2]) if (t1 == "1") else self.template2(arbituraryData[0], arbituraryData[1])
+		set1, cnt = self.template1(arbituraryData[0], arbituraryData[1], arbituraryData[2]) if (t1 == "1") else self.template2(arbituraryData[0], arbituraryData[1])
 		
 		if(union):
 			resultSet = set0.union(set1)
 		else:
-			resultSet = set0.intersect(set1)
+			resultSet = set0.intersection(set1)
 		return resultSet, len(resultSet)
 			
 # start of main program
@@ -281,11 +281,11 @@ finalList = ["result11", "result12", "result13", "result14", "result15", "result
 finalcnt = [cnt11, cnt12, cnt13, cnt14, cnt15, cnt16, cnt17, cnt18, cnt19, cnt21, cnt22, cnt23, cnt31, cnt32, cnt33, cnt34, cnt35, cnt36]
 
 with open(ruleTemplatePrintFileName, 'w') as tempFile:
-	for listthing, index in enurmerate(finalList):
+	for index, listthing in enumerate(finalList):
 		tempFile.write(listthing + ":\n")
+		tempFile.write("count: %d\n"%(finalcnt[index]))
 		for rulez in eval(listthing):
-			tempFile.write(str(rulez) + "\n")
-		tempFile.write(count + ": %d\n"%(finalcnt[index]))
+			tempFile.write(str(rulez))
 
 
 #print(aporoi_freq_set(formatted_data, [b"1 Up", b"2 Down"], 0.6))

@@ -1,0 +1,62 @@
+result11:
+count: 4
+{'G96_Down'} -> {'G59_Up'}
+{'G59_Up'} -> {'G96_Down'}
+{'G72_Up'} -> {'G59_Up'}
+{'G59_Up'} -> {'G72_Up'}
+result12:
+count: 0
+result13:
+count: 4
+{'G96_Down'} -> {'G59_Up'}
+{'G59_Up'} -> {'G96_Down'}
+{'G72_Up'} -> {'G59_Up'}
+{'G59_Up'} -> {'G72_Up'}
+result14:
+count: 2
+{'G96_Down'} -> {'G59_Up'}
+{'G72_Up'} -> {'G59_Up'}
+result15:
+count: 0
+result16:
+count: 2
+{'G96_Down'} -> {'G59_Up'}
+{'G72_Up'} -> {'G59_Up'}
+result17:
+count: 2
+{'G59_Up'} -> {'G96_Down'}
+{'G59_Up'} -> {'G72_Up'}
+result18:
+count: 0
+result19:
+count: 2
+{'G59_Up'} -> {'G96_Down'}
+{'G59_Up'} -> {'G72_Up'}
+result21:
+count: 0
+result22:
+count: 0
+result23:
+count: 4
+{'G96_Down'} -> {'G59_Up'}
+{'G59_Up'} -> {'G96_Down'}
+{'G72_Up'} -> {'G59_Up'}
+{'G59_Up'} -> {'G72_Up'}
+result31:
+count: 2
+{'G59_Up'} -> {'G96_Down'}
+{'G59_Up'} -> {'G72_Up'}
+result32:
+count: 0
+result33:
+count: 0
+result34:
+count: 0
+result35:
+count: 4
+{'G96_Down'} -> {'G59_Up'}
+{'G59_Up'} -> {'G96_Down'}
+{'G72_Up'} -> {'G59_Up'}
+{'G59_Up'} -> {'G72_Up'}
+result36:
+count: 0
