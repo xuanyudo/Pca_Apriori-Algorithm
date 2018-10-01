@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 import pandas as pd
+import sys
 from numpy import genfromtxt
 
 from sklearn.manifold import TSNE
@@ -47,16 +48,25 @@ def tsneformat(data):
 	y = TSNE(n_components=2).fit_transform(formattedData)
 	return y[:,0], y[:, 1]
 
-my_data = genfromtxt('pca_c.txt', delimiter='\t', dtype="|S10")
+filename = sys.argv[1]
+
+if len(sys.argv)<3:
+	algorithm = 'pca'
+else:
+	algorithm = sys.argv[2]
+my_data = genfromtxt(filename, delimiter='\t', dtype="|S10")
 
 formattedData = my_data[:, :-1:].astype(np.float)
 
-#y0, y1 = PCA(formattedData)
+if algorithm == 'pca':
+	y0, y1 = PCA(formattedData)
 
-#u, s, vh = np.linalg.svd(my_data[:, :-1:].astype(np.float))
-#y0, y1 = u[:,0], u[:,1]
+elif algorithm == 'svd':
+	u, s, vh = np.linalg.svd(my_data[:, :-1:].astype(np.float))
+	y0, y1 = u[:,0], u[:,1]
+elif algorithm == 'tsne':
+	y0, y1 = tsneformat(formattedData)
 
-y0, y1 = tsneformat(formattedData)
 labels = my_data[:, -1::].transpose()[0]
 
 plot(y0, y1, labels)

@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-
+import sys
 
 class PCA:
     def __init__(self):
@@ -94,6 +94,5 @@ class PCA:
 
 if __name__ == '__main__':
     pca = PCA()
-    pca.pca("pca_a.txt")
-    pca.pca("pca_b.txt")
-    pca.pca("pca_c.txt")
+
+    pca.pca(sys.argv[1])

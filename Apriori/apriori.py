@@ -1,7 +1,7 @@
 import numpy as np
 from collections import deque
 from timeit import default_timer as timer
-
+import sys
 
 class Head:
     def __init__(self, elem=[]):
@@ -290,8 +290,10 @@ class apriori:
 
 
 if __name__ == '__main__':
-    ap = apriori("associationruletestdata.txt")
+
+
+    ap = apriori(sys.argv[1])
     start = timer()
-    ap.apriori(0.5, 0.7)
+    ap.apriori(sys.argv[2],sys.argv[3])
     end = timer()
     print("time elapse: {}".format(end - start))

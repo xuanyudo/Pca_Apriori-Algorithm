@@ -4,10 +4,19 @@ import numpy as np
 from functools import reduce
 import hashlib
 import pickle
+import sys
 
-support = 0.3
-confidence = 0.7
-testFileName = 'associationruletestdata'
+
+if len(sys.argv)<2:
+	support = 0.3
+	confidence = 0.7
+
+	testFileName = 'associationruletestdata'
+elif len(sys.argv)<3:
+	support = 0.3
+	confidence = 0.7
+elif len(sys.argv)<4:
+	confidence = 0.7
 #testFileName = 'test'
 testFile = testFileName+'.txt'
 saveFileName = "savedsupport_"+str(support)+"confid_"+str(confidence)+testFileName
