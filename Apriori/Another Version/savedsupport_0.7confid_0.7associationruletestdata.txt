@@ -1,3 +1,0 @@
-Support is set to be: 70.000000
-number of length-1 lengths frequent itemsets: 7
-number of all lengths frequent itemsets: 7
