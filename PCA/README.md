@@ -11,4 +11,5 @@ Where as [filename] is your path to your input file with the same format as pca_
 and [pca|svd|tsne] is three algorithms you can pick from. 
 Omitting this option will result in running pca algorithm in default, and inputting wrong option will result an error.
 
-
+## Result
+Program will result in generating a graph after reduction process. and the graph will be show using matplotlib library.
